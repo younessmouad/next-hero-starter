@@ -44,15 +44,17 @@ export default async function RootLayout({
       <head />
       <body
         className={cn(
-          "flex min-h-screen flex-col overflow-x-hidden antialiased",
+          "min-h-screen overflow-x-hidden font-sans antialiased",
           fontSans.variable
         )}
       >
         <Providers messages={messages} locale={locale}>
-          <main>
-            <Suspense>{children}</Suspense>
-          </main>
-          <Footer />
+          <div className="relative flex h-screen flex-col">
+            <main className="container mx-auto max-w-7xl flex-grow px-6 pt-16">
+              <Suspense>{children}</Suspense>
+            </main>
+            <Footer />
+          </div>
         </Providers>
       </body>
     </html>

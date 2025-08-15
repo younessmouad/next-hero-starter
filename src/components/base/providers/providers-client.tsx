@@ -13,10 +13,7 @@ export default function ProvidersClient({ children }: { children: ReactNode }) {
   const locale = useLocale();
 
   return (
-    <HeroUIProvider
-      navigate={(href) => router.push(href, { locale })}
-      className="flex flex-grow flex-col"
-    >
+    <HeroUIProvider navigate={(href) => router.push(href, { locale })}>
       <NextThemesProvider attribute="class" defaultTheme="dark">
         {children}
       </NextThemesProvider>
