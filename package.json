@@ -22,6 +22,7 @@
     "@heroui/theme": "2.4.20",
     "@react-aria/ssr": "3.9.10",
     "@react-aria/visually-hidden": "3.8.26",
+    "@tabler/icons-react": "^3.34.1",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "clsx": "2.1.1",
     "express": "^5.1.0",

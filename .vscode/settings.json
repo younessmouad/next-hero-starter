@@ -17,6 +17,6 @@
   "eslint.workingDirectories": ["**"],
   "eslint.format.enable": false,
   "eslint.enable": true,
-  "cSpell.words": ["heroui", "nextui"],
+  "cSpell.words": ["heroui", "nextui", "tabler"],
   "i18n-ally.localesPaths": ["src/i18n"]
 }

@@ -3,9 +3,6 @@ interface Language {
   name: string;
 }
 
-export const languages: Language[] = [
-  { code: "fr", name: "Français" },
-  { code: "en", name: "English" },
-];
+export const languages: Language[] = [{ code: "en", name: "English" }];
 
 export const defaultLocale = "en";
