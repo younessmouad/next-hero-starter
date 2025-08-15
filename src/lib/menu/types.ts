@@ -7,6 +7,7 @@ export interface MenuItem {
   icon?: TablerIcon;
   href?: string;
   route?: RoutePath;
+  disabled?: boolean;
 }
 
 export interface MenuGroup {

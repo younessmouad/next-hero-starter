@@ -3,6 +3,7 @@ import { Suspense } from "react";
 
 import { getMessages } from "next-intl/server";
 
+import AppNavbar from "@/components/navbar";
 import Footer from "@/components/base/footer";
 import Providers from "@/components/base/providers";
 import { fontSans } from "@/config/fonts";
@@ -50,6 +51,7 @@ export default async function RootLayout({
       >
         <Providers messages={messages} locale={locale}>
           <div className="relative flex h-screen flex-col">
+            <AppNavbar />
             <main className="container mx-auto max-w-7xl flex-grow px-6 pt-16">
               <Suspense>{children}</Suspense>
             </main>
