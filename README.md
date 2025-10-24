@@ -7,10 +7,10 @@ A modern **Next.js starter template** with **Tailwind CSS** and **Hero UI**, des
 - [Next.js 15](https://nextjs.org/docs/getting-started)
 - [HeroUI v2](https://heroui.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [next-themes](https://github.com/pacocoursey/next-themes)
+- [next-intl](https://next-intl.dev/docs/getting-started)
 
 ## Code Conventions 🧹
 
