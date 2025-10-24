@@ -23,3 +23,7 @@ export const NAV_MENU: (MenuItem | MenuGroup)[] = [
     ],
   },
 ];
+
+export function isMenuGroup(item: MenuItem | MenuGroup): item is MenuGroup {
+  return "items" in item;
+}

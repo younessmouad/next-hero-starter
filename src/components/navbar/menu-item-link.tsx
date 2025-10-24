@@ -11,8 +11,8 @@ export default function MenuItemLink({ item }: { item: MenuItem }) {
   if (item.disabled) return null;
 
   return (
-    <SmartLink item={item} className="text-default-600 flex items-center gap-2">
-      {item.icon && <item.icon />}
+    <SmartLink item={item} className="text-default-800 flex items-center gap-2">
+      {/* {item.icon && <item.icon />} */}
       <span>{t(item.label)}</span>
     </SmartLink>
   );

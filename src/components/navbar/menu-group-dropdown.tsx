@@ -26,7 +26,7 @@ export default function MenuGroupDropdown({ menuGrp }: { menuGrp: MenuGroup }) {
     >
       <NavbarItem>
         <DropdownTrigger>
-          <div className="flex cursor-pointer items-center gap-1">
+          <div className="text-default-800 flex cursor-pointer items-center gap-1">
             <span>{t(menuGrp.label)}</span>
             <IconChevronDown size={18} />
           </div>
