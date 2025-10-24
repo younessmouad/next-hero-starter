@@ -1,12 +1,11 @@
-import fs from "fs";
-import _ from "lodash";
 import { hasLocale } from "next-intl";
 import { getRequestConfig } from "next-intl/server";
-import path from "path";
-
+import { translationFiles } from "./config";
 import { routing } from "./routing";
+import _ from "lodash";
 
-type Messages = Record<string, Record<string, string>>;
+type TranslationFile = typeof translationFiles[number];
+type Messages = Record<TranslationFile, Record<string, string>>;
 
 export default getRequestConfig(async ({ requestLocale }) => {
   // Typically corresponds to the `[locale]` segment
@@ -15,31 +14,20 @@ export default getRequestConfig(async ({ requestLocale }) => {
     ? requested
     : routing.defaultLocale;
 
-  // Load translations from the translations directory
-  const dirPath = path.join(process.cwd(), "translations", locale);
-  const files = fs
-    .readdirSync(dirPath)
-    .filter((file) => file.endsWith(".json"));
 
-  const messages: Messages = {};
+  // Import each file explicitly based on the list
+  const entries = await Promise.all(
+    translationFiles.map(async (name) => {
+      const mod = await import(`../../translations/${locale}/${name}.json`);
+      const key = _.camelCase(name);
+      return [key, mod.default] as const;
+    })
+  );
 
-  // Read each file and parse its content
-  for (const file of files) {
-    const key = _.camelCase(file.replace(".json", ""));
-    const filePath = path.join(dirPath, file);
-
-    const fileContent = fs.readFileSync(filePath, "utf-8");
-    const parsed = JSON.parse(fileContent);
-
-    if (typeof parsed !== "object" || Array.isArray(parsed)) {
-      throw new Error(`Invalid translation file: ${file}`);
-    }
-
-    messages[key] = parsed as Record<string, string>;
-  }
+  const messages: Messages = Object.fromEntries(entries) as Messages;
 
   return {
     locale,
-    messages,
+    messages
   };
 });
